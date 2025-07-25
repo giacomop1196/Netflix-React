@@ -2,7 +2,7 @@ import { Component } from "react";
 import NetflixResult from "./NetflixResult";
 import { Container, Row, Col, Dropdown, Button } from "react-bootstrap"
 
-class NetflixMain extends Component {
+class NetflixMainHome extends Component {
     render() {
         return (
             <Container fluid className="bg-dark text-white min-h-screen py-5">
@@ -69,4 +69,4 @@ class NetflixMain extends Component {
     }
 }
 
-export default NetflixMain
+export default NetflixMainHome
