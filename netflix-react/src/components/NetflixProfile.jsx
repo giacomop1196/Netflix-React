@@ -5,7 +5,7 @@ import avatarImg from '/img/avatar.png'
 class NetflixProfile extends Component {
     render() {
         return (
-            <Container className="bg-dark" fluid>
+            <Container className="bg-dark py-4" fluid>
                 <Row>
                     <Col xs={12} md={8} lg={6} className="offset-md-2 offset-lg-3">
                         <h1 className="text-white pb-3 border-bottom border-secondary border-opacity-25">Edit Profile</h1>
