@@ -1,10 +1,12 @@
 import { Component } from "react";
 import { Container, Row, Col, Nav, Navbar, NavDropdown, Image } from "react-bootstrap"
 import netflixLogo from '/img/netflix_logo.png'
-import avatarImg from '/img/avatar.png'
 
 class NetflixNavbar extends Component {
+
+  
     render() {
+          console.log(this.props.user)
         return (
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Container fluid>
@@ -42,7 +44,7 @@ class NetflixNavbar extends Component {
                             </Nav.Link>
 
                             <NavDropdown
-                                title={<Image src={avatarImg} alt="Avatar" width="30" />}
+                                title={<Image src={`${this.props.user.profile_photo}`} alt="Avatar" width="30" />}
                                 id="basic-nav-dropdown"
                                 align="end"
                                 variant="dark"

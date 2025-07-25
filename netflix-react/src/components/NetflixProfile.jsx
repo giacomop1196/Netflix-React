@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { Container, Row, Col, DropdownButton, Button, Image, Form, Dropdown } from "react-bootstrap"
-import avatarImg from '/img/avatar.png'
 
 class NetflixProfile extends Component {
     render() {
@@ -14,7 +13,7 @@ class NetflixProfile extends Component {
                 <Row>
                     <Col xs={12} md={8} lg={6} className="offset-md-2 offset-lg-3 d-flex flex-column flex-md-row">
                         <div className="mb-3 mb-md-0 me-md-3">
-                            <Image src={avatarImg} alt="Profile Avatar" className="img-fluid rounded-0"
+                            <Image src={this.props.user.profile_photo}  alt="Profile Avatar" className="img-fluid rounded-0"
                                 style={{
                                     width: '180px',
                                     height: '180px',
@@ -26,7 +25,7 @@ class NetflixProfile extends Component {
                         <div className="flex-grow-1">
                             <Form>
                                 <Form.Control type="text" className="form-control-plaintext text-white bg-secondary py-1 px-2 mb-3"
-                                    value="Strive Student" disabled />
+                                    value={`${this.props.user.name} ${this.props.user.surname}`} disabled />
 
                                 <p className="text-white mb-2">Language:</p>
                                 <div className="mb-4">

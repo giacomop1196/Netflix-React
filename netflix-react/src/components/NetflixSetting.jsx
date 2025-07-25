@@ -1,6 +1,5 @@
 import { Component } from "react";
-import { Container, Row, Col, DropdownButton, Button, Image, Form, Dropdown } from "react-bootstrap"
-import avatarImg from '/img/avatar.png'
+import { Container, Row, Col, Button, Image } from "react-bootstrap"
 
 class NetflixSetting extends Component {
     render() {
@@ -20,7 +19,7 @@ class NetflixSetting extends Component {
 
                         <div className="flex-grow-1">
                             <div className="d-flex justify-content-between align-items-center">
-                                <p className="m-0">student@strive.school</p>
+                                <p className="m-0 fw-bold">{this.props.user.email}</p>
                                 <p className="text-primary m-0">Change account email</p>
                             </div>
                             <div className="d-flex justify-content-between align-items-center">
@@ -28,14 +27,14 @@ class NetflixSetting extends Component {
                                 <p className="text-primary m-0">Change password</p>
                             </div>
                             <div className="d-flex justify-content-between align-items-center">
-                                <p className="text-muted m-0">Phone: 3210441279*</p>
+                                <p className="text-muted m-0">Phone: {this.props.user.phone_number}</p>
                                 <p className="text-primary m-0">Change phone number</p>
                             </div>
 
                             <div className="pb-3 border-bottom border-secondary border-opacity-25"></div>
 
                             <div className="d-flex justify-content-between">
-                                <p className="text-muted m-0">PayPal admin@strive.school</p>
+                                <p className="text-muted m-0">PayPal {this.props.user.email}</p>
                                 <div>
                                     <p className="text-primary m-0">Update payment info</p>
                                     <p className="text-primary text-end m-0">Billing details</p>
@@ -62,7 +61,7 @@ class NetflixSetting extends Component {
                         <div className="flex-grow-1">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="d-flex align-items-center">
-                                    <p className="m-0">Premium</p>
+                                    <p className="m-0 fw-bold">Premium</p>
                                     <div className="px-1 border border-secondary m-2">ULTRA HD</div>
                                 </div>
                                 <p className="text-primary m-0">Change plan</p>
@@ -96,16 +95,16 @@ class NetflixSetting extends Component {
                         <div className="flex-grow-1">
                             <div className="d-flex justify-content-between">
                                 <div className="d-flex align-items-center">
-                                    <Image src={avatarImg} alt="Profile Avatar" className="img-fluid rounded-0 me-2"
+                                    <Image src={this.props.user.profile_photo} alt="Profile Avatar" className="img-fluid rounded-0 me-2"
                                         style={{
                                             width: '30px',
                                             height: '30px',
                                             objectFit: 'cover',
                                         }}
                                     />
-                                    <p className="m-0">Strive Student</p></div>
+                                    <p className="m-0">{this.props.user.name} {this.props.user.surname}</p></div>
                                 <div>
-                                    <p className="text-primary m-0">Manage Profiles</p>
+                                    <p className="text-primary m-0 text-end">Manage Profiles</p>
                                     <p className="text-primary text-end m-0">Add profile email</p>
                                 </div>
                             </div>
