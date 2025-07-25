@@ -9,3 +9,20 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.img-scroll {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.img-profile-setting {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}

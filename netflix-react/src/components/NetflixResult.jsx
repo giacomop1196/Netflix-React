@@ -12,6 +12,7 @@ class NetflixResult extends Component {
         isError: false,
     }
 
+    // Funzione per recuperare i film dall'api (Il parametro è passato dalla props)
     getResults = () => {
         fetch(apiLink + this.props.resultName, {
         })
@@ -46,19 +47,24 @@ class NetflixResult extends Component {
 
     render() {
 
+        {/* Array principlae che ci arriva dall'api */}
         const resultsArray = this.state
 
+        {/* Array che contiene solo i dati di Search */}
         const finalResult = resultsArray.results.Search
 
 
         return (
             <Container fluid className="px-0">
                 
+                {/* Titolo della ricerca */}
                 <h3>{this.props.resultName}</h3>
+
+                {/* Totale risultati trovati dall'api */}
                 <p className="mt-2">Total Result: {resultsArray.results.totalResults}</p>
                 
                 <Row className=" overflow-x-auto flex-nowrap hide-scrollbar pb-3 d-flex">
-                     {/* Spinner */}
+                    {/* Spinner */}
                     {this.state.isLoading && (
                         <div className="text-center mb-3">
                             <Spinner animation="grow" />
@@ -74,12 +80,7 @@ class NetflixResult extends Component {
                     {finalResult.map((result) => {
                         return (
                             <Col xs={9} md={6} lg={2} key={result.imdbID}>
-                                <Image src={result.Poster} fluid alt="img" style={{
-                                    width: '100%', // Ho provato a metterlo esterno in App.css ma non funziona
-                                    height: '180px',
-                                    objectFit: 'cover',
-                                    objectPosition: 'top'
-                                }} />
+                                <Image src={result.Poster} fluid alt="img" className="img-scroll"/>
                                 <p>{result.Title} - {result.Year}</p>
                             </Col>
                         )
