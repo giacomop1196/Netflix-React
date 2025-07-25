@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap"
 class NetflixFooter extends Component {
     render() {
         return (
-            <footer className="py-5">
+            <footer className="py-5 bg-dark">
                 <Container>
                     <Row className="mb-4">
                         <Col xs={12} className="text-center text-md-start">
