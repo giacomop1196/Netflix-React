@@ -50,9 +50,13 @@ class NetflixResult extends Component {
 
         const finalResult = resultsArray.results.Search
 
+
         return (
             <Container fluid className="px-0">
-                <h3 className="text-white mb-3">{this.props.resultName}</h3>
+                
+                <h3>{this.props.resultName}</h3>
+                <p className="mt-2">Total Result: {resultsArray.results.totalResults}</p>
+                
                 <Row className=" overflow-x-auto flex-nowrap hide-scrollbar pb-3 d-flex">
                      {/* Spinner */}
                     {this.state.isLoading && (
