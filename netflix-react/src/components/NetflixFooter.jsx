@@ -65,7 +65,7 @@ class NetflixFooter extends Component {
 
                     <Row className="mt-3">
                         <Col xs={12} className="mb-3">
-                            <button className="btn btn-outline-secondary rounded-0">Service Code</button> {/* Corretto classNameName in className */}
+                            <button className="btn btn-outline-secondary rounded-0">Service Code</button>
                         </Col>
                     </Row>
 

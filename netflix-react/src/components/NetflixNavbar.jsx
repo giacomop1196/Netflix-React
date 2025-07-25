@@ -42,7 +42,7 @@ class NetflixNavbar extends Component {
                             </Nav.Link>
 
                             <NavDropdown
-                                title={<Image src={avatarImg} alt="Avatar" width="30" />} // L'immagine come titolo del dropdown
+                                title={<Image src={avatarImg} alt="Avatar" width="30" />}
                                 id="basic-nav-dropdown"
                                 align="end"
                                 variant="dark"

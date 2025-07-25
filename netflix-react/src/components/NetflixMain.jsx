@@ -5,7 +5,7 @@ import { Container, Row, Col, Dropdown, Button } from "react-bootstrap"
 class NetflixMain extends Component {
     render() {
         return (
-            <Container fluid className="bg-dark text-white min-h-screen py-5"> {/* Added background for better visibility */}
+            <Container fluid className="bg-dark text-white min-h-screen py-5">
                 <section className="mb-5">
                     <Row className="d-flex justify-content-between align-items-center mb-3">
                         <Col className="d-flex align-items-center">
@@ -19,14 +19,14 @@ class NetflixMain extends Component {
                                     Genres
                                 </Dropdown.Toggle>
 
-                                <Dropdown.Menu variant="dark"> {/* Use variant="dark" for dark dropdown */}
+                                <Dropdown.Menu variant="dark">
                                     <Dropdown.Item href="#/action">Action</Dropdown.Item>
                                     <Dropdown.Item href="#/horror">Horror</Dropdown.Item>
                                     <Dropdown.Item href="#/anime">Anime</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </Col>
-                        <Col xs="auto" className="d-flex"> {/* Use xs="auto" to make column fit content */}
+                        <Col xs="auto" className="d-flex">
                             <Button variant="outline-secondary" className="border-white mx-2 rounded-0">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,10 @@ class NetflixMain extends Component {
                         </Col>
                     </Row>
                 </section>
+                {/* Componenti */}
                 <NetflixResult resultName='Avengers' />
+                <NetflixResult resultName='One Piece' />
+                <NetflixResult resultName='Harry Potter' />
             </Container>
 
         )
