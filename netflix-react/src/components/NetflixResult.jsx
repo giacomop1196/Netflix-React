@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import { Container, Row, Col, Image, Spinner, Alert } from "react-bootstrap"
 
 
-
-
 const NetflixResult = (props) => {
 
     const navigate = useNavigate()

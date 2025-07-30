@@ -20,9 +20,9 @@ class NetflixMainHome extends Component {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu variant="dark">
-                                    <Dropdown.Item href="#/action">Action</Dropdown.Item>
-                                    <Dropdown.Item href="#/horror">Horror</Dropdown.Item>
-                                    <Dropdown.Item href="#/anime">Anime</Dropdown.Item>
+                                    <Dropdown.Item>Action</Dropdown.Item>
+                                    <Dropdown.Item>Horror</Dropdown.Item>
+                                    <Dropdown.Item>Anime</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </Col>
@@ -61,7 +61,7 @@ class NetflixMainHome extends Component {
                 </section>
                 {/* Componenti */}
                 <NetflixResult resultName='Avengers' />
-                <NetflixResult resultName='One Piece' />
+                <NetflixResult resultName='Tremors' />
                 <NetflixResult resultName='Harry Potter' />
             </Container>
 
