@@ -20,7 +20,7 @@ const NetflixNavbar = (props) => {
 
                     <Nav className="me-auto">
                         <Link className={location.pathname === '/' ? 'nav-link active' : 'nav-link'} to="/"> Home </Link>
-                        <Nav.Link>TV Shows</Nav.Link>
+                        <Link className={location.pathname === '/tv-show' ? 'nav-link active' : 'nav-link'} to="/tv-show"> TV Shows </Link>
                         <Nav.Link>Movies</Nav.Link>
                         <Nav.Link>Recently Added</Nav.Link>
                         <Nav.Link>My List</Nav.Link>
@@ -46,8 +46,8 @@ const NetflixNavbar = (props) => {
                             align="end"
                             variant="dark"
                         >
-                            <NavDropdown.Item><Link to="/setting"> Manage Profile </Link></NavDropdown.Item>
-                            <NavDropdown.Item><Link to="/user"> Profile </Link></NavDropdown.Item>
+                            <NavDropdown.Item><Link className="text-decoration-none text-black" to="/setting"> Manage Profile </Link></NavDropdown.Item>
+                            <NavDropdown.Item><Link className="text-decoration-none text-black" to="/user"> Profile </Link></NavDropdown.Item>
                             <NavDropdown.Item>Help Center</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item>Sign out of Netflix</NavDropdown.Item>

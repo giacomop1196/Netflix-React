@@ -1,5 +1,4 @@
-import { Component } from "react";
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Container, Row, Col, Image, Spinner, Alert } from "react-bootstrap"
 
@@ -8,13 +7,9 @@ import { Container, Row, Col, Image, Spinner, Alert } from "react-bootstrap"
 
 const NetflixResult = (props) => {
 
-    const apiLink = 'http://www.omdbapi.com/?apikey=a0a627c0&s='
+    const navigate = useNavigate()
 
-    //  state = {
-    //      results: { Search: [] },
-    //      isLoading: true,
-    //       isError: false,
-    //  }
+    const apiLink = 'http://www.omdbapi.com/?apikey=a0a627c0&s='
 
     const [results, setResults] = useState({ Search: [] })
     const [isLoading, setIsLoading] = useState(true)
@@ -82,9 +77,10 @@ const NetflixResult = (props) => {
                 {/* Ciclo i risultati */}
                 {finalResult.map((result) => {
                     return (
-                        <Col xs={9} md={6} lg={2} key={result.imdbID}>
-                            <Image src={result.Poster} fluid alt="img" className="img-scroll" />
-                            <p>{result.Title} - {result.Year}</p>
+                        <Col className='cursor-pointer' xs={9} md={6} lg={2} key={result.imdbID} onClick={() => {navigate('/detail/' + result.imdbID)}}>
+                            
+                                <Image src={result.Poster} fluid alt="img" className="img-scroll" />
+                                <p>{result.Title} - {result.Year}</p>
                         </Col>
                     )
                 })}
