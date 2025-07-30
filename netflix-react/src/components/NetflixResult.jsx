@@ -1,20 +1,34 @@
 import { Component } from "react";
+import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { Container, Row, Col, Image, Spinner, Alert } from "react-bootstrap"
 
 
-const apiLink = 'http://www.omdbapi.com/?apikey=a0a627c0&s='
 
-class NetflixResult extends Component {
 
-    state = {
-        results: { Search: [] },
-        isLoading: true,
-        isError: false,
-    }
+const NetflixResult = (props) => {
+
+    const apiLink = 'http://www.omdbapi.com/?apikey=a0a627c0&s='
+
+    //  state = {
+    //      results: { Search: [] },
+    //      isLoading: true,
+    //       isError: false,
+    //  }
+
+    const [results, setResults] = useState({ Search: [] })
+    const [isLoading, setIsLoading] = useState(true)
+    const [isError, setIsError] = useState(false)
+
+    useEffect(() => {
+        getResults()
+    }, [props.resultName])
+
 
     // Funzione per recuperare i film dall'api (Il parametro è passato dalla props)
-    getResults = () => {
-        fetch(apiLink + this.props.resultName, {
+    const getResults = () => {
+
+        fetch(apiLink + props.resultName, {
         })
             .then((res) => {
                 if (res.ok) {
@@ -23,72 +37,60 @@ class NetflixResult extends Component {
                 throw new Error('Errore nel recupero dei dati')
             })
             .then((films) => {
-                console.log(films)
-                this.setState({
-                    results: films,
-                    isLoading: false
-                },
+                console.log(films, 'film arrivati')
 
-                )
+                setResults(films)
+                setIsLoading(false)
             })
             .catch((error) => {
 
                 console.error("Errore nel recupero dei dati:", error);
-                this.setState({
-                    isLoading: false,
-                    isError: true,
-                })
+                setIsLoading(false)
+                setIsError(true)
             })
     }
 
-    componentDidMount() {
-        this.getResults()
-    }
+    {/* Array principlae che ci arriva dall'api */ }
+    const finalResult = results.Search
 
-    render() {
-
-        {/* Array principlae che ci arriva dall'api */}
-        const resultsArray = this.state
-
-        {/* Array che contiene solo i dati di Search */}
-        const finalResult = resultsArray.results.Search
+    {/* Array che contiene solo i dati di Search */ }
+    const totalCount = results.totalResults;
 
 
-        return (
-            <Container fluid className="px-0">
-                
-                {/* Titolo della ricerca */}
-                <h3>{this.props.resultName}</h3>
+    return (
+        <Container fluid className="px-0">
 
-                {/* Totale risultati trovati dall'api */}
-                <p className="mt-2">Total Result: {resultsArray.results.totalResults}</p>
-                
-                <Row className=" overflow-x-auto flex-nowrap hide-scrollbar pb-3 d-flex">
-                    {/* Spinner */}
-                    {this.state.isLoading && (
-                        <div className="text-center mb-3">
-                            <Spinner animation="grow" />
-                        </div>
-                    )}
-                    {/* Errore se vado nel catch */}
-                    {this.state.isError && (
-                        <Alert variant="danger" className="text-center">
-                            Errore nel recupero dei dati
-                        </Alert>
-                    )}
-                    {/* Ciclo i risultati */}
-                    {finalResult.map((result) => {
-                        return (
-                            <Col xs={9} md={6} lg={2} key={result.imdbID}>
-                                <Image src={result.Poster} fluid alt="img" className="img-scroll"/>
-                                <p>{result.Title} - {result.Year}</p>
-                            </Col>
-                        )
-                    })}
-                </Row>
-            </Container>
-        )
-    }
+            {/* Titolo della ricerca */}
+            <h3>{props.resultName}</h3>
+
+            {/* Totale risultati trovati dall'api */}
+            <p className="mt-2">Total Result: {totalCount}</p>
+
+            <Row className=" overflow-x-auto flex-nowrap hide-scrollbar pb-3 d-flex">
+                {/* Spinner */}
+                {isLoading && (
+                    <div className="text-center mb-3">
+                        <Spinner animation="grow" />
+                    </div>
+                )}
+                {/* Errore se vado nel catch */}
+                {isError && (
+                    <Alert variant="danger" className="text-center">
+                        Errore nel recupero dei dati
+                    </Alert>
+                )}
+                {/* Ciclo i risultati */}
+                {finalResult.map((result) => {
+                    return (
+                        <Col xs={9} md={6} lg={2} key={result.imdbID}>
+                            <Image src={result.Poster} fluid alt="img" className="img-scroll" />
+                            <p>{result.Title} - {result.Year}</p>
+                        </Col>
+                    )
+                })}
+            </Row>
+        </Container>
+    )
 }
 
 export default NetflixResult

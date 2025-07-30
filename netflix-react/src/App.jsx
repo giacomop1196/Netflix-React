@@ -3,6 +3,7 @@ import NetflixFooter from './components/NetflixFooter'
 import NetflixMainHome from './components/NetflixMainHome'
 import NetflixProfile from './components/NetflixProfile';
 import NetflixSetting from './components/NetflixSetting';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import './App.css';
@@ -22,21 +23,26 @@ function App() {
 
   return (
     <>
-      {/*  NAVBAR   */}
-      <NetflixNavbar user={userObj} />
+      <BrowserRouter>
+        {/*  NAVBAR   */}
+        <NetflixNavbar user={userObj} />
+        <Routes>
 
-      {/*  MAIN HOME   */}
-      {/*  La scrollbar è nascosta dal css per una questione stilistica. Gli elementi si possono scorrere con il touchpad */}
-      <NetflixMainHome />
+          {/*  MAIN HOME   */}
+          {/*  La scrollbar è nascosta dal css per una questione stilistica. Gli elementi si possono scorrere con il touchpad */}
+          <Route path="/" element={<NetflixMainHome />} />
 
-      {/*  PROFILE PAGE   */}
-      {/* <NetflixProfile user={userObj} /> */}
+          {/*  PROFILE PAGE   */}
+          <Route path="/user" element={<NetflixProfile user={userObj} />} />
 
-      {/*  SETTING PAGE   */}
-      <NetflixSetting user={userObj} /> 
+          {/*  SETTING PAGE   */}
+           <Route path="/setting" element={<NetflixSetting user={userObj} />} />
+          
+        </Routes>
 
-      {/*  FOOTER   */}
-      <NetflixFooter user={userObj} />
+        {/*  FOOTER   */}
+        <NetflixFooter user={userObj} />
+      </BrowserRouter>
     </>
   )
 }
