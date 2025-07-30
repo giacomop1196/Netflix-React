@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Container, Row, Col, Image, Spinner, Alert, Card, Button, Form } from "react-bootstrap"
+import DeleteCommentButton from './DeleteCommentButton'
 
 const NetflixMovieDetails = () => {
 
@@ -105,11 +106,11 @@ const NetflixMovieDetails = () => {
                     </Col>
                     <Col xs={12} md={8}>
                         <h2 className="text-white mt-3 mt-md-0">{movieDetails.Title}</h2>
-                        <p className="text-muted">{movieDetails.Year} | {movieDetails.Genre} | {movieDetails.Runtime}</p>
+                        <p className="text-white">{movieDetails.Year} | {movieDetails.Genre} | {movieDetails.Runtime}</p>
                         <p className="text-white">{movieDetails.Plot}</p>
-                        <p className="text-white">**Regista:** {movieDetails.Director}</p>
-                        <p className="text-white">**Attori:** {movieDetails.Actors}</p>
-                        <p className="text-white">**IMDb Rating:** {movieDetails.imdbRating}</p>
+                        <p className="text-white">Regista: {movieDetails.Director}</p>
+                        <p className="text-white">Attori: {movieDetails.Actors}</p>
+                        <p className="text-white">IMDb Rating: {movieDetails.imdbRating}</p>
                     </Col>
                 </Row>
 
@@ -148,7 +149,7 @@ const NetflixMovieDetails = () => {
                                         <Card.Text>
                                             {comment.comment}
                                         </Card.Text>
-                                        <Button variant="danger">Elimina</Button>
+                                        <DeleteCommentButton commentId={comment._id} funComment={getComment} />
                                     </Card.Body>
                                     <Card.Footer className="text-muted">{new Date(comment.createdAt).toLocaleDateString()}</Card.Footer>
                                 </Card>
