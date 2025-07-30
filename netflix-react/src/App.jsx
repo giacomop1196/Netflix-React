@@ -5,6 +5,7 @@ import NetflixProfile from './components/NetflixProfile';
 import NetflixSetting from './components/NetflixSetting';
 import NetflixTvShow from './components/NetflixTvShow';
 import NetflixMovieDetails from './components/NetflixMovieDetails';
+import NotFound from './components/NotFound';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
@@ -47,6 +48,9 @@ function App() {
 
           {/*  SETTING PAGE   */}
           <Route path="/setting" element={<NetflixSetting user={userObj} />} />
+
+          {/*  NOT FOUND PAGE   */}
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
 
